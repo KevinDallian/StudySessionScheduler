@@ -17,10 +17,14 @@ struct SessionList: View {
                 .offset(y: 150)
                 .foregroundColor(.white)
                 .shadow(radius: 32, y: -5)
-                
-        }
-        
+            ScrollView{
+                ForEach(1..<10){_ in
+                    SessionView()
+                        .padding(.horizontal)
+                }
+            }.offset(y: 160)
             
+        }
     }
 }
 
