@@ -11,6 +11,10 @@
 		D85C3FF229C9BB3F00B7D9FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */; };
 		D85C3FF429C9BB3F00B7D9FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */; };
 		D85C3FF729C9BB3F00B7D9FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C3FF629C9BB3F00B7D9FE /* Preview Assets.xcassets */; };
+		D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */; };
+		D85C400229C9C20C00B7D9FE /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400129C9C20C00B7D9FE /* ItemModel.swift */; };
+		D85C400529C9C3EA00B7D9FE /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400429C9C3EA00B7D9FE /* SessionList.swift */; };
+		D85C400729C9C59500B7D9FE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400629C9C59500B7D9FE /* SessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D85C3FF629C9BB3F00B7D9FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
+		D85C400129C9C20C00B7D9FE /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		D85C400429C9C3EA00B7D9FE /* SessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionList.swift; sourceTree = "<group>"; };
+		D85C400629C9C59500B7D9FE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				D85C3FEF29C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift */,
-				D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */,
+				D85C3FFE29C9C04D00B7D9FE /* DataModel */,
+				D85C3FFD29C9C03800B7D9FE /* Views */,
 				D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */,
 				D85C3FF529C9BB3F00B7D9FE /* Preview Content */,
 			);
@@ -65,6 +74,33 @@
 				D85C3FF629C9BB3F00B7D9FE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D85C3FFD29C9C03800B7D9FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D85C400329C9C3D900B7D9FE /* Session */,
+				D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D85C3FFE29C9C04D00B7D9FE /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */,
+				D85C400129C9C20C00B7D9FE /* ItemModel.swift */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		D85C400329C9C3D900B7D9FE /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				D85C400429C9C3EA00B7D9FE /* SessionList.swift */,
+				D85C400629C9C59500B7D9FE /* SessionView.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85C3FF229C9BB3F00B7D9FE /* ContentView.swift in Sources */,
+				D85C400529C9C3EA00B7D9FE /* SessionList.swift in Sources */,
+				D85C400729C9C59500B7D9FE /* SessionView.swift in Sources */,
 				D85C3FF029C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift in Sources */,
+				D85C400229C9C20C00B7D9FE /* ItemModel.swift in Sources */,
+				D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
