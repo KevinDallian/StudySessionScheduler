@@ -1,2 +1,2 @@
 # StudySessionScheduler
-SwiftUI App for managing schedules for study session. StudySessionScheduler is a solution made for nano challenge 1 in apple developer academy.
+SwiftUI App for managing schedules for study session. StudySessionScheduler is a solution made for Nano Challenge 1 in Apple Developer Academy.
