@@ -59,8 +59,9 @@ struct SessionList: View {
                     }.accentColor(.white)
                 }
                 ToolbarItemGroup(placement: .bottomBar){
-                    Button{
-                        
+                    NavigationLink{
+                        SessionForm()
+                            .navigationBarBackButtonHidden(true)
                     }label: {
                         Image(systemName: "plus")
                             .accentColor(.black)
