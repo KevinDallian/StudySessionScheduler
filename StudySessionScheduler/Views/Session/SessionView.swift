@@ -12,7 +12,7 @@ struct SessionView: View {
         HStack{
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 70, height: 70)
-                .padding(.trailing, 15.0)
+                .padding(.trailing, 10.0)
             VStack(alignment: .leading){
                 Text("Swift Class")
                     .font(.title.weight(.bold))
@@ -32,7 +32,7 @@ struct SessionView: View {
             VStack{
                 Text("Available")
                     .font(.subheadline.weight(.light))
-                    .foregroundColor(.green)
+                    .foregroundColor(Color(red: 9/255, green: 118/255, blue: 5/255))
                 Spacer()
                 Text("Detail >")
                     .foregroundColor(.gray)
