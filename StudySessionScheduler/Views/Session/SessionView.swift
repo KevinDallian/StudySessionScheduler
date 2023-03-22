@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct SessionView: View {
+    @EnvironmentObject var itemModel : ItemModel
+    var session : Session
     var body: some View {
         HStack{
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 70, height: 70)
                 .padding(.trailing, 10.0)
             VStack(alignment: .leading){
-                Text("Swift Class")
+                Text("\(session.sessionName)")
                     .font(.title.weight(.bold))
-                Text("Mar 5, 2023 6:00 PM")
+                    .foregroundColor(.black)
+                Text("\(session.date, style: .date) \(session.date, style: .time)")
                     .font(.caption.weight(.light))
                     .foregroundColor(.gray)
                     .padding(.bottom, -4.0)
-                Text("by KD")
+                Text("by \(session.host)")
                     .font(.caption.weight(.light))
                     .foregroundColor(.gray)
                     .padding(.bottom, -3.0)
-                Text("Slot 129/130")
+                Text("Slot \(session.participants.count)/\(session.max)")
                     .font(.caption.weight(.light))
                     .foregroundColor(.gray)
             }
             Spacer()
             VStack{
-                Text("Available")
+                Text(session.participants.count == session.max ? "Full" : "Available")
                     .font(.subheadline.weight(.light))
-                    .foregroundColor(Color(red: 9/255, green: 118/255, blue: 5/255))
+                    .foregroundColor(session.participants.count == session.max ? Color(red: 1, green: 0, blue: 0) : Color(red: 9/255, green: 118/255, blue: 5/255))
                 Spacer()
                 Text("Detail >")
                     .foregroundColor(.gray)
@@ -46,7 +49,9 @@ struct SessionView: View {
 }
 
 struct SessionView_Previews: PreviewProvider {
+    static let itemModel = ItemModel()
     static var previews: some View {
-        SessionView()
+        SessionView(session: itemModel.sessions[0])
+            .environmentObject(ItemModel())
     }
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct StudySessionSchedulerApp: App {
+    @StateObject var itemModel = ItemModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(itemModel)
         }
     }
 }

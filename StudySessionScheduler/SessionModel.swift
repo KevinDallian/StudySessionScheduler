@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Session{
+struct Session: Identifiable{
+    var id = UUID().uuidString
     var sessionName : String
     var desc : String
     var date : Date
