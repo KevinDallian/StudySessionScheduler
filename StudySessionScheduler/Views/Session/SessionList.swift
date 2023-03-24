@@ -15,13 +15,16 @@ struct SessionList: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Rectangle()
-                    .foregroundColor(.green)
-                    .ignoresSafeArea()
+//                Rectangle()
+//                    .foregroundColor(.green)
+//                    .ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 34)
                     .offset(y: 100)
                     .foregroundColor(.white)
                     .shadow(radius: 32, y: -5)
+                RoundedRectangle(cornerRadius: 34)
+                    .offset(y: 695)
+                    .foregroundColor(.green)
                 ScrollView{
                     ForEach(sessions){session in
                         NavigationLink{
@@ -32,7 +35,11 @@ struct SessionList: View {
                         }.accentColor(.black)
                     }
                 }.offset(y: 120)
-            }
+            }.background(
+                Image("Morning")
+                    .resizable()
+                    .offset(y: -350)
+            )
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     VStack(alignment: .leading){
@@ -64,7 +71,10 @@ struct SessionList: View {
                             .navigationBarBackButtonHidden(true)
                     }label: {
                         Image(systemName: "plus")
-                            .accentColor(.black)
+                            .accentColor(.white)
+                            .background(Circle()
+                                .fill(.green)
+                                .frame(width: 50, height: 50))
                     }
                 }
                 
