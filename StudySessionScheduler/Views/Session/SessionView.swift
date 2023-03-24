@@ -15,7 +15,7 @@ struct SessionView: View {
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 70, height: 70)
                 .padding(.trailing, 10.0)
-            VStack(alignment: .leading){
+            VStack(alignment:  .leading){
                 Text("\(session.sessionName)")
                     .font(.title.weight(.bold))
                     .foregroundColor(.black)
