@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct SessionList: View {
-    @EnvironmentObject var itemModel : ItemViewModel
-
+    @EnvironmentObject var itemModel : ItemModel
+    @State private var searchTerm = ""
+    @State private var filteredWords: [Session] = []
+    
+//    var sessions : [Session]{
+//        itemModel.sessions
+//    }
+    
+    private func performSearch(keyword: String){
+        filteredWords = itemModel.sessions.filter {
+            sessi in sessi.sessionName.contains(keyword)
+        }
+    }
+    
+    var sessions: [Session] {
+        filteredWords.isEmpty ? itemModel.sessions :  filteredWords
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -18,7 +34,7 @@ struct SessionList: View {
                     .foregroundColor(.white)
                     .shadow(radius: 32, y: -5)
                 RoundedRectangle(cornerRadius: 34)
-                    .offset(y: 695)
+                    .offset(y: 640)
                     .foregroundColor(.green)
                 ScrollView{
                     ForEach(0 ..< itemModel.sessions.count) { index in
@@ -29,8 +45,10 @@ struct SessionList: View {
                             SessionView(session: itemModel.sessions[index])
                                 .padding(.horizontal)
                         }.accentColor(.black)
-                    }
-                }.offset(y: 145)
+                    }.searchable(text: $searchTerm)
+                        .onChange(of: searchTerm, perform: performSearch)
+                        
+                }.offset(y: 120)
             }.background(
                 Image("Morning")
                     .resizable()

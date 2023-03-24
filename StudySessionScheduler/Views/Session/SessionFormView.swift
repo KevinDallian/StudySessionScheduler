@@ -18,6 +18,7 @@ struct SessionFormView: View {
     @Binding var savedSession : [Session]
     var body: some View {
         VStack{
+            Spacer()
             Form{
                 Section(header : Text("Name Session")){
                     TextField("Name Study Session" , text: $sessionName)
@@ -41,7 +42,9 @@ struct SessionFormView: View {
                     TextField("Description" , text: $desc)
                 }
                 
+                
             }.accentColor(.red)
+            Spacer()
             
             Button{
                 let participants = [host]
@@ -51,11 +54,11 @@ struct SessionFormView: View {
                 Text("Save to History")
                     .frame(maxWidth: .infinity, maxHeight: 40)
             }
-            .background(.blue)
+            .background(.green)
             .buttonStyle(.bordered)
             .foregroundColor(.white)
             .cornerRadius(8)
-            .offset(y: -50)
+            .offset(y: -40)
             .padding()
             
         }
