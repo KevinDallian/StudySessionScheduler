@@ -14,22 +14,33 @@ struct SessionFormView: View {
     @Binding var place : String
     @Binding var max : Int
     @Binding var desc : String
+
     @Binding var savedSession : [Session]
     var body: some View {
         VStack{
             Form{
                 Section(header : Text("Name Session")){
                     TextField("Name Study Session" , text: $sessionName)
-                    TextField("Session By" , text: $host)
-                    TextField("Place" , text: $place)
-                    Stepper("Capacity", value: $max, in: 1...1000)
-                    Text("This Sesssion has \(max) capacity")
-                    TextField("Description" , text: $desc)
                 }
                 
                 Section(header : Text("Date")) {
                     DatePicker("Date Time", selection: $date, displayedComponents: [.date, .hourAndMinute])
                 }
+                
+                Section(header : Text("Session By")) {
+                    TextField("Session By" , text: $host)
+                }
+                
+                Section(header : Text("Capacity")) {
+                    Stepper("Max \(max) people" , value: $max, in: 1...1000)
+                }
+                Section(header : Text("Place")) {
+                    TextField("Place" , text: $place)
+                }
+                Section(header : Text("Description")) {
+                    TextField("Description" , text: $desc)
+                }
+                
             }.accentColor(.red)
             
             Button{
@@ -43,7 +54,7 @@ struct SessionFormView: View {
             .buttonStyle(.bordered)
             .foregroundColor(.white)
             .cornerRadius(8)
-            .offset(y: -250)
+            .offset(y: -50)
             .padding()
             
         }

@@ -14,7 +14,9 @@ struct SessionForm: View {
     @State private var place : String = ""
     @State private var max : Int = 1
     @State private var desc : String = ""
-    @State private var savedSession = [Session(sessionName: "", desc: "", date: Date(), place: "", host: "", max: 0)]
+    @EnvironmentObject var itemModel : ItemModel
+     
+    
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView{
@@ -27,7 +29,7 @@ struct SessionForm: View {
                         .offset(y: -30)
                         .foregroundColor(.white)
                         .shadow(radius: 32, y: 5)
-                    SessionFormView(sessionName: $sessionName, date: $date, host: $host, place: $place, max: $max, desc: $desc, savedSession: $savedSession)
+                    SessionFormView(sessionName: $sessionName, date: $date, host: $host, place: $place, max: $max, desc: $desc, savedSession: $itemModel.sessions)
                         .background(Color.white)
                         .scrollContentBackground(.hidden)
                 }.offset(y: 100)
