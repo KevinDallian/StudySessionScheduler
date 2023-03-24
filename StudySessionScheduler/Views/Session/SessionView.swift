@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SessionView: View {
     @EnvironmentObject var itemModel : ItemModel
+    
     var session : Session
     var body: some View {
         HStack{
@@ -27,16 +28,24 @@ struct SessionView: View {
                     .font(.caption.weight(.light))
                     .foregroundColor(.gray)
                     .padding(.bottom, -3.0)
-//                Text("Slot \(session.participants.count)/\(session.max)")
-                Text("Slot")
-                    .font(.caption.weight(.light))
-                    .foregroundColor(.gray)
+                HStack(spacing: 2){
+                    Text("Slot")
+                        .font(.caption.weight(.light))
+                        .foregroundColor(.gray)
+                    Text("\(session.participants!.count) /")
+                        .font(.caption.weight(.light))
+                        .foregroundColor(.gray)
+                    Text("\(session.max)")
+                        .font(.caption.weight(.light))
+                        .foregroundColor(.gray)
+                }
+                
             }
             Spacer()
             VStack{
-//                Text(session.participants.count == session.max ? "Full" : "Available")
-//                    .font(.subheadline.weight(.light))
-//                    .foregroundColor(session.participants.count == session.max ? Color(red: 1, green: 0, blue: 0) : Color(red: 9/255, green: 118/255, blue: 5/255))
+                Text(session.participants!.count == session.max ? "Full" : "Available")
+                    .font(.subheadline.weight(.light))
+                    .foregroundColor(session.participants?.count == session.max ? Color(red: 1, green: 0, blue: 0) : Color(red: 9/255, green: 118/255, blue: 5/255))
                 Text("Full")
                 Spacer()
                 Text("Detail >")

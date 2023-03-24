@@ -57,5 +57,6 @@ struct SessionForm: View {
 struct SessionForm_Previews: PreviewProvider {
     static var previews: some View {
         SessionForm()
+            .environmentObject(ItemModel())
     }
 }
