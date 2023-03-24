@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SessionDetailView: View {
-    @State var name:String = ""
+
+    @EnvironmentObject private var itemModel : ItemModel
     @Environment(\.presentationMode) var presentationMode
+    var session : Session
+    @State var name:String = ""
 
     var body: some View {
         NavigationView{
@@ -27,62 +30,67 @@ struct SessionDetailView: View {
                         .scaledToFit()
                         .clipShape(Circle())
                         .frame(width: 154, height: 154)
-                    Text("Swift Class")
+                    Text("\(session.sessionName)")
                         .font(.largeTitle.weight(.bold))
-                    Text("By KD")
+                    Text("By \(session.host)")
+
                     VStack(alignment: .leading) {
                         Text("Date Time")
                             .font(.subheadline.weight(.bold))
                         HStack {
-                            Text ("Mar 5, 2023")
-                            Spacer ()
-                            Text ("6:00 PM")
+                            Text (session.date, style: .date)
+                            Text (session.date, style: .time)
                         }
                         .padding(.bottom)
                         Text("At")
                             .font(.subheadline.weight(.bold))
-                        Text ("Lab - 01")
+                        Text ("\(session.place)")
                             .padding(.bottom)
                         Text("Description")
                             .font(.subheadline.weight(.bold))
-                        Text  ("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.")
+                        Text  ("\(session.desc)")
                             .padding(.bottom)
                         Text("Your Name")
                             .font(.subheadline.weight(.bold))
-                        
-                        TextField ("name", text: $name)
-                            .cornerRadius(10)
-                            .border(.secondary)
+                        TextField ("", text: $name)
+                            .textFieldStyle(.roundedBorder)
                     }.padding([.leading, .bottom, .trailing])
-                    Button ("Join Session")
+                    Button
                     {
                         
-                    } .padding(.top)
+                    } label: {
+                        Text("Join Session")
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                    }.padding(.horizontal)
                     .buttonStyle(.borderedProminent)
                     .tint(.green)
-                    
                 }
-            }.toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(action : { self.presentationMode.wrappedValue.dismiss() }){
-                        Image(systemName: "arrowshape.turn.up.backward.circle")
-                            .font(.title)
-                            .accentColor(.white)
-                    }.navigationBarBackButtonHidden(true)
-                    Text("Back")
-                        .font(.title.weight(.bold))
-                        .foregroundColor(.white)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }){
+                        HStack{
+                            Image(systemName: "arrowshape.turn.up.backward.circle")
+                                .font(.title)
+                                .accentColor(.white)
+                            
+                        }
+                        
+                    }
                     
                 }
             }
         }
-        
-   
+
     }
 }
 
 struct SessionDetailView_Previews: PreviewProvider {
+    static let itemModel = ItemModel()
     static var previews: some View {
-        SessionDetailView()
+        SessionDetailView(session: itemModel.sessions[0])
+            .environmentObject(ItemModel())
     }
 }

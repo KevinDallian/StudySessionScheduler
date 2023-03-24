@@ -28,7 +28,7 @@ struct SessionList: View {
                 ScrollView{
                     ForEach(sessions){session in
                         NavigationLink{
-                            Text("Hello")
+                            SessionDetailView(session: session)
                         }label: {
                             SessionView(session: session)
                                 .padding(.horizontal)
