@@ -11,6 +11,7 @@ struct SessionList: View {
     @EnvironmentObject var itemModel : ItemViewModel
     @State private var searchTerm = ""
     @State private var filteredWords: [Session] = []
+    let hour = Calendar.current.component(.hour, from: Date())
     
     private func performSearch(keyword: String){
         filteredWords = itemModel.sessions.filter {
@@ -46,7 +47,7 @@ struct SessionList: View {
                         
                 }.offset(y: 120)
             }.background(
-                Image("Morning")
+                Image(hour > 0 && hour < 18 ? "Morning" : "Night")
                     .resizable()
                     .offset(y: -350)
             )

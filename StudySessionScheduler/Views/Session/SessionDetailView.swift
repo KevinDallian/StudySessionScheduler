@@ -18,9 +18,9 @@ struct SessionDetailView: View {
     var body: some View {
         NavigationView{
             ZStack {
-//                RoundedRectangle(cornerRadius: 10)
-//                    .foregroundColor(.blue)
-//                    .ignoresSafeArea()
+                Image("DetailView")
+                    .resizable()
+                    .offset(y: -160)
                 RoundedRectangle(cornerRadius: 34)
                     .offset(y: 125)
                     .foregroundColor(.white)
@@ -78,10 +78,6 @@ struct SessionDetailView: View {
                     }.padding(.horizontal)
                     .buttonStyle(.borderedProminent)
                     .tint(.green)
-                }.background{
-                    Image("DetailView")
-                        .resizable()
-                        .offset(y: -500)
                 }
             }
             .toolbar {
