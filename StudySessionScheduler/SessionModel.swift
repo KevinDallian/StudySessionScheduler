@@ -13,7 +13,7 @@ struct Session: Identifiable{
     var desc : String
     var date : Date
     var place : String
-//    var participants : [String]
+    var participants : [String]?
     var host : String
     var max : Int
 }
