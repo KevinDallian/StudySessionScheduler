@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		310FBF5D29CB3CB7009D178B /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FBF5C29CB3CB7009D178B /* SessionDetailView.swift */; };
 		7143F55D29CBAE3E00C9F366 /* SessionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7143F55C29CBAE3E00C9F366 /* SessionForm.swift */; };
+		7157D1CF29CD7494008E8AC9 /* SessionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7157D1CE29CD7494008E8AC9 /* SessionFormView.swift */; };
 		D85C3FF029C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C3FEF29C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift */; };
 		D85C3FF229C9BB3F00B7D9FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */; };
 		D85C3FF429C9BB3F00B7D9FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		310FBF5C29CB3CB7009D178B /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		7143F55C29CBAE3E00C9F366 /* SessionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForm.swift; sourceTree = "<group>"; };
+		7157D1CE29CD7494008E8AC9 /* SessionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFormView.swift; sourceTree = "<group>"; };
 		D85C3FEC29C9BB3F00B7D9FE /* StudySessionScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySessionScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85C3FEF29C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionSchedulerApp.swift; sourceTree = "<group>"; };
 		D85C3FF129C9BB3F00B7D9FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				D85C400629C9C59500B7D9FE /* SessionView.swift */,
 				310FBF5C29CB3CB7009D178B /* SessionDetailView.swift */,
 				7143F55C29CBAE3E00C9F366 /* SessionForm.swift */,
+				7157D1CE29CD7494008E8AC9 /* SessionFormView.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				D85C3FF029C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift in Sources */,
 				310FBF5D29CB3CB7009D178B /* SessionDetailView.swift in Sources */,
 				D85C400229C9C20C00B7D9FE /* ItemModel.swift in Sources */,
+				7157D1CF29CD7494008E8AC9 /* SessionFormView.swift in Sources */,
 				D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

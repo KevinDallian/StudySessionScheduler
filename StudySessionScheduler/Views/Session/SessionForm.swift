@@ -14,33 +14,39 @@ struct SessionForm: View {
     @State private var place : String = ""
     @State private var max : Int = 1
     @State private var desc : String = ""
+    @State private var savedSession = [Session(sessionName: "", desc: "", date: Date(), place: "", host: "", max: 0)]
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView{
-            Form{
-                Section(header : Text("New Session")){
-                    TextField("Name Study Session" , text: $sessionName)
-                    DatePicker("Date Time", selection: $date, displayedComponents: [.date, .hourAndMinute])
-                    TextField("Session By" , text: $host)
-                    TextField("Place" , text: $place)
-                    Stepper("Capacity", value: $max, in: 1...1000)
-                    Text("This Sesssion has \(max) capacity")
-                    TextField("Description" , text: $desc)
-                }
+            ZStack{
+                Rectangle()
+                    .foregroundColor(.green)
+                    .ignoresSafeArea()
+                ZStack{
+                    RoundedRectangle(cornerRadius: 34)
+                        .offset(y: -30)
+                        .foregroundColor(.white)
+                        .shadow(radius: 32, y: 5)
+                    SessionFormView(sessionName: $sessionName, date: $date, host: $host, place: $place, max: $max, desc: $desc, savedSession: $savedSession)
+                        .background(Color.white)
+                        .scrollContentBackground(.hidden)
+                }.offset(y: 100)
+                
             }.accentColor(.red)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button(action : { self.presentationMode.wrappedValue.dismiss() }){
                             Image(systemName: "arrowshape.turn.up.backward.circle")
                                 .font(.title)
-                                .accentColor(.black)
+                                .accentColor(.white)
                         }.navigationBarBackButtonHidden(true)
                         Text("Create New Session")
                             .font(.title.weight(.bold))
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                         
                     }
                 }
+           
         }
         
     }
