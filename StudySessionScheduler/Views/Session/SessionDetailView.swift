@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SessionDetailView: View {
+
     @EnvironmentObject private var itemModel : ItemModel
     @Environment(\.presentationMode) var presentationMode
     var session : Session
-    @State var name : String = ""
+    @State var name:String = ""
 
     var body: some View {
-        NavigationView {
+        NavigationView{
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.blue)
@@ -23,13 +24,16 @@ struct SessionDetailView: View {
                     .offset(y: 125)
                     .foregroundColor(.white)
                 VStack {
-                    Image(systemName: "person.circle")
+                    Image(systemName: "person.crop.circle")
                         .resizable()
+                        .background(.white)
                         .scaledToFit()
+                        .clipShape(Circle())
                         .frame(width: 154, height: 154)
                     Text("\(session.sessionName)")
                         .font(.largeTitle.weight(.bold))
                     Text("By \(session.host)")
+
                     VStack(alignment: .leading) {
                         Text("Date Time")
                             .font(.subheadline.weight(.bold))
@@ -76,11 +80,10 @@ struct SessionDetailView: View {
                         
                     }
                     
-
                 }
             }
         }
-        
+
     }
 }
 
