@@ -23,4 +23,8 @@ class ItemViewModel : ObservableObject{
         objectWillChange.send()
     }
     
+    func addSession(session: Session){
+        sessions.append(session)
+    }
+    
 }

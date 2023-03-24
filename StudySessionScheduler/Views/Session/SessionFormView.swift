@@ -14,6 +14,7 @@ struct SessionFormView: View {
     @Binding var place : String
     @Binding var max : Int
     @Binding var desc : String
+    @EnvironmentObject var itemModel : ItemViewModel
 
     @Binding var savedSession : [Session]
     var body: some View {
@@ -49,9 +50,9 @@ struct SessionFormView: View {
             Button{
                 let participants = [host]
                 let newSession = Session(sessionName: sessionName, desc: desc, date: date, place: place, participants: participants, host: host, max: max)
-                savedSession.append(newSession)
+                itemModel.addSession(session: newSession)
             } label: {
-                Text("Save to History")
+                Text("Create new Session")
                     .frame(maxWidth: .infinity, maxHeight: 40)
             }
             .background(.green)

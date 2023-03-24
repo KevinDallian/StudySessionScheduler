@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct SessionList: View {
-    @EnvironmentObject var itemModel : ItemModel
+    @EnvironmentObject var itemModel : ItemViewModel
     @State private var searchTerm = ""
     @State private var filteredWords: [Session] = []
-    
-//    var sessions : [Session]{
-//        itemModel.sessions
-//    }
     
     private func performSearch(keyword: String){
         filteredWords = itemModel.sessions.filter {
@@ -37,7 +33,7 @@ struct SessionList: View {
                     .offset(y: 640)
                     .foregroundColor(.green)
                 ScrollView{
-                    ForEach(0 ..< itemModel.sessions.count) { index in
+                    ForEach(0 ..< itemModel.sessions.count, id: \.self) { index in
                         NavigationLink{
                             SessionDetailView(session: itemModel.sessions[index])
                                 .navigationBarBackButtonHidden(true)
