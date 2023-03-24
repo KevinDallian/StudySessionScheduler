@@ -14,7 +14,7 @@ struct SessionForm: View {
     @State private var place : String = ""
     @State private var max : Int = 1
     @State private var desc : String = ""
-    @EnvironmentObject var itemModel : ItemModel
+    @EnvironmentObject var itemModel : ItemViewModel
      
     
     @Environment(\.presentationMode) var presentationMode
@@ -57,6 +57,6 @@ struct SessionForm: View {
 struct SessionForm_Previews: PreviewProvider {
     static var previews: some View {
         SessionForm()
-            .environmentObject(ItemModel())
+            .environmentObject(ItemViewModel())
     }
 }

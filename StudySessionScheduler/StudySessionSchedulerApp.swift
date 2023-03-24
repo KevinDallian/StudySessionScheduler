@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct StudySessionSchedulerApp: App {
-    @StateObject var itemModel = ItemModel()
+    @StateObject var itemModel = ItemViewModel()
     
     var body: some Scene {
         WindowGroup {

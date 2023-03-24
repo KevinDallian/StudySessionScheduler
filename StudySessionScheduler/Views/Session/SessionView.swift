@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SessionView: View {
-    @EnvironmentObject var itemModel : ItemModel
+    @EnvironmentObject var itemModel : ItemViewModel
     
     var session : Session
     var body: some View {
@@ -32,7 +32,7 @@ struct SessionView: View {
                     Text("Slot")
                         .font(.caption.weight(.light))
                         .foregroundColor(.gray)
-                    Text("\(session.participants!.count) /")
+                    Text("\(session.participants.count) /")
                         .font(.caption.weight(.light))
                         .foregroundColor(.gray)
                     Text("\(session.max)")
@@ -43,10 +43,9 @@ struct SessionView: View {
             }
             Spacer()
             VStack{
-                Text(session.participants!.count == session.max ? "Full" : "Available")
+                Text(session.participants.count == session.max ? "Full" : "Available")
                     .font(.subheadline.weight(.light))
-                    .foregroundColor(session.participants?.count == session.max ? Color(red: 1, green: 0, blue: 0) : Color(red: 9/255, green: 118/255, blue: 5/255))
-                Text("Full")
+                    .foregroundColor(session.participants.count == session.max ? Color(red: 1, green: 0, blue: 0) : Color(red: 9/255, green: 118/255, blue: 5/255))
                 Spacer()
                 Text("Detail >")
                     .foregroundColor(.gray)
@@ -60,9 +59,9 @@ struct SessionView: View {
 }
 
 struct SessionView_Previews: PreviewProvider {
-    static let itemModel = ItemModel()
+    static let itemModel = ItemViewModel()
     static var previews: some View {
         SessionView(session: itemModel.sessions[0])
-            .environmentObject(ItemModel())
+            .environmentObject(ItemViewModel())
     }
 }

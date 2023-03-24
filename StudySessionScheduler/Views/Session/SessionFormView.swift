@@ -44,7 +44,8 @@ struct SessionFormView: View {
             }.accentColor(.red)
             
             Button{
-                let newSession = Session(sessionName: sessionName, desc: desc, date: date, place: place, host: host, max: max)
+                let participants = [host]
+                let newSession = Session(sessionName: sessionName, desc: desc, date: date, place: place, participants: participants, host: host, max: max)
                 savedSession.append(newSession)
             } label: {
                 Text("Save to History")

@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct SessionList: View {
-    @EnvironmentObject var itemModel : ItemModel
-    var sessions : [Session]{
-        itemModel.sessions
-    }
+    @EnvironmentObject var itemModel : ItemViewModel
+
     var body: some View {
         NavigationView{
             ZStack{
-//                Rectangle()
-//                    .foregroundColor(.green)
-//                    .ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 34)
                     .offset(y: 100)
                     .foregroundColor(.white)
@@ -26,15 +21,16 @@ struct SessionList: View {
                     .offset(y: 695)
                     .foregroundColor(.green)
                 ScrollView{
-                    ForEach(sessions){session in
+                    ForEach(0 ..< itemModel.sessions.count) { index in
                         NavigationLink{
-                            SessionDetailView(session: session)
+                            SessionDetailView(session: itemModel.sessions[index])
+                                .navigationBarBackButtonHidden(true)
                         }label: {
-                            SessionView(session: session)
+                            SessionView(session: itemModel.sessions[index])
                                 .padding(.horizontal)
                         }.accentColor(.black)
                     }
-                }.offset(y: 120)
+                }.offset(y: 145)
             }.background(
                 Image("Morning")
                     .resizable()
@@ -87,6 +83,6 @@ struct SessionList: View {
 struct SessionList_Previews: PreviewProvider {
     static var previews: some View {
         SessionList()
-            .environmentObject(ItemModel())
+            .environmentObject(ItemViewModel())
     }
 }

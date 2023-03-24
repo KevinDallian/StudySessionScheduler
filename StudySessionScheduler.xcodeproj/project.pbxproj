@@ -15,7 +15,7 @@
 		D85C3FF429C9BB3F00B7D9FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */; };
 		D85C3FF729C9BB3F00B7D9FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C3FF629C9BB3F00B7D9FE /* Preview Assets.xcassets */; };
 		D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */; };
-		D85C400229C9C20C00B7D9FE /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400129C9C20C00B7D9FE /* ItemModel.swift */; };
+		D85C400229C9C20C00B7D9FE /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */; };
 		D85C400529C9C3EA00B7D9FE /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400429C9C3EA00B7D9FE /* SessionList.swift */; };
 		D85C400729C9C59500B7D9FE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400629C9C59500B7D9FE /* SessionView.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +30,7 @@
 		D85C3FF329C9BB3F00B7D9FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D85C3FF629C9BB3F00B7D9FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
-		D85C400129C9C20C00B7D9FE /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		D85C400429C9C3EA00B7D9FE /* SessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionList.swift; sourceTree = "<group>"; };
 		D85C400629C9C59500B7D9FE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */,
-				D85C400129C9C20C00B7D9FE /* ItemModel.swift */,
+				D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 				7143F55D29CBAE3E00C9F366 /* SessionForm.swift in Sources */,
 				D85C3FF029C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift in Sources */,
 				310FBF5D29CB3CB7009D178B /* SessionDetailView.swift in Sources */,
-				D85C400229C9C20C00B7D9FE /* ItemModel.swift in Sources */,
+				D85C400229C9C20C00B7D9FE /* ItemViewModel.swift in Sources */,
 				7157D1CF29CD7494008E8AC9 /* SessionFormView.swift in Sources */,
 				D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */,
 			);

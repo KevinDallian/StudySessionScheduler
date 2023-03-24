@@ -9,17 +9,18 @@ import SwiftUI
 
 struct SessionDetailView: View {
 
-    @EnvironmentObject private var itemModel : ItemModel
+    @EnvironmentObject private var itemModel : ItemViewModel
     @Environment(\.presentationMode) var presentationMode
     var session : Session
-    @State var name:String = ""
-
+    
+    @State var name : String = ""
+    @State private var showSessionListView = false
     var body: some View {
         NavigationView{
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.blue)
-                    .ignoresSafeArea()
+//                RoundedRectangle(cornerRadius: 10)
+//                    .foregroundColor(.blue)
+//                    .ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 34)
                     .offset(y: 125)
                     .foregroundColor(.white)
@@ -50,6 +51,16 @@ struct SessionDetailView: View {
                             .font(.subheadline.weight(.bold))
                         Text  ("\(session.desc)")
                             .padding(.bottom)
+                        Text("Participants")
+                            .font(.subheadline.weight(.bold))
+                        if session.participants.isEmpty{
+                            
+                        }else{
+                            ForEach(session.participants, id: \.self){ participant in
+                                Text("\(participant)")
+                            }
+                        }
+                        
                         Text("Your Name")
                             .font(.subheadline.weight(.bold))
                         TextField ("", text: $name)
@@ -57,13 +68,20 @@ struct SessionDetailView: View {
                     }.padding([.leading, .bottom, .trailing])
                     Button
                     {
-                        
+                        if(name != ""){
+                            itemModel.addNewParticipant(name: name, className: session.sessionName)
+                        }
+                        showSessionListView = true
                     } label: {
                         Text("Join Session")
                             .frame(maxWidth: .infinity, minHeight: 50)
                     }.padding(.horizontal)
                     .buttonStyle(.borderedProminent)
                     .tint(.green)
+                }.background{
+                    Image("DetailView")
+                        .resizable()
+                        .offset(y: -500)
                 }
             }
             .toolbar {
@@ -74,11 +92,10 @@ struct SessionDetailView: View {
                         HStack{
                             Image(systemName: "arrowshape.turn.up.backward.circle")
                                 .font(.title)
-                                .accentColor(.white)
-                            
+                                .accentColor(.black)
                         }
                         
-                    }
+                    }.navigationBarBackButtonHidden(true)
                     
                 }
             }
@@ -88,9 +105,9 @@ struct SessionDetailView: View {
 }
 
 struct SessionDetailView_Previews: PreviewProvider {
-    static let itemModel = ItemModel()
+    static let itemModel = ItemViewModel()
     static var previews: some View {
         SessionDetailView(session: itemModel.sessions[0])
-            .environmentObject(ItemModel())
+            .environmentObject(ItemViewModel())
     }
 }
