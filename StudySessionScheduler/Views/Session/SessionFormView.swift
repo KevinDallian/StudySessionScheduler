@@ -15,6 +15,8 @@ struct SessionFormView: View {
     @Binding var max : Int
     @Binding var desc : String
     @EnvironmentObject var itemModel : ItemViewModel
+    @State private var showAlert = false
+    @Environment(\.presentationMode) var presentationMode
 
     @Binding var savedSession : [Session]
     var body: some View {
@@ -22,35 +24,42 @@ struct SessionFormView: View {
             Spacer()
             Form{
                 Section(header : Text("Name Session")){
-                    TextField("Name Study Session" , text: $sessionName)
+                    TextField("Name" , text: $sessionName)
+                        .textFieldStyle(.roundedBorder)
                 }
                 
                 Section(header : Text("Date")) {
                     DatePicker("Date Time", selection: $date, displayedComponents: [.date, .hourAndMinute])
+                        .labelsHidden()
                 }
                 
-                Section(header : Text("Session By")) {
+                Section(header : Text("Hosted By")) {
                     TextField("Session By" , text: $host)
+                        .textFieldStyle(.roundedBorder)
                 }
                 
                 Section(header : Text("Capacity")) {
                     Stepper("Max \(max) people" , value: $max, in: 1...1000)
+                        .textFieldStyle(.roundedBorder)
                 }
                 Section(header : Text("Place")) {
                     TextField("Place" , text: $place)
+                        .textFieldStyle(.roundedBorder)
                 }
                 Section(header : Text("Description")) {
                     TextField("Description" , text: $desc)
+                        .textFieldStyle(.roundedBorder)
+
                 }
                 
                 
             }.accentColor(.red)
             Spacer()
-            
             Button{
                 let participants = [host]
                 let newSession = Session(sessionName: sessionName, desc: desc, date: date, place: place, participants: participants, host: host, max: max)
                 itemModel.addSession(session: newSession)
+                showAlert = true
             } label: {
                 Text("Create new Session")
                     .frame(maxWidth: .infinity, maxHeight: 40)
@@ -61,7 +70,15 @@ struct SessionFormView: View {
             .cornerRadius(8)
             .offset(y: -40)
             .padding()
-            
+            .alert("Creation Success", isPresented: $showAlert) {
+                Button{
+                    self.presentationMode.wrappedValue.dismiss()
+                } label:{
+                    Text("Back to Menu")
+                }
+            } message: {
+                Text("Successfully created \(sessionName)")
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ struct SessionList: View {
         NavigationView{
             ZStack{
                 RoundedRectangle(cornerRadius: 34)
-                    .offset(y: 100)
+                    .offset(y: 70)
                     .foregroundColor(.white)
                     .shadow(radius: 32, y: -5)
                 RoundedRectangle(cornerRadius: 34)
@@ -57,7 +57,7 @@ struct SessionList: View {
                         Text("Hi, Masbrow")
                             .font(.largeTitle.weight(.bold))
                             .foregroundColor(.white)
-                        Text("Good Morning")
+                        Text(hour > 0 && hour < 18 ? "Good Morning" : "Good Night")
                             .font(.headline.weight(.light))
                             .foregroundColor(.white)
                     }

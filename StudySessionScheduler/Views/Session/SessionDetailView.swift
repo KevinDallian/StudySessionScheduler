@@ -10,11 +10,10 @@ import SwiftUI
 struct SessionDetailView: View {
 
     @EnvironmentObject private var itemModel : ItemViewModel
-    @State private var showAlert = false
     @Environment(\.presentationMode) var presentationMode
     var session : Session
-    
     @State var name : String = ""
+    @State private var showAlert = false
     @State private var showSessionListView = false
     var body: some View {
         NavigationView{
@@ -77,8 +76,9 @@ struct SessionDetailView: View {
                         }
                         else if(name != ""){
                             itemModel.addNewParticipant(name: name, className: session.sessionName)
+                            showSessionListView = true
                         }
-                        showSessionListView = true
+                        
                     } label: {
                         Text("Join Session")
                             .frame(maxWidth: .infinity, minHeight: 50)
@@ -89,6 +89,15 @@ struct SessionDetailView: View {
                         Button("OK", role: .cancel){}
                     } message: {
                         Text("The session is full")
+                    }
+                    .alert("Joined Success!", isPresented: $showSessionListView){
+                        Button {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Text("Back to Menu")
+                        }
+                    } message:{
+                        Text("Successfully Joined \(session.sessionName)!")
                     }
                 }
             }
@@ -104,7 +113,6 @@ struct SessionDetailView: View {
                         }
                         
                     }.navigationBarBackButtonHidden(true)
-                    
                 }
             }
         }
