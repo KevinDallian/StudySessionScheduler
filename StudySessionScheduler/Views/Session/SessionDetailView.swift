@@ -10,6 +10,7 @@ import SwiftUI
 struct SessionDetailView: View {
 
     @EnvironmentObject private var itemModel : ItemViewModel
+    @State private var showAlert = false
     @Environment(\.presentationMode) var presentationMode
     var session : Session
     
@@ -49,18 +50,21 @@ struct SessionDetailView: View {
                             .padding(.bottom)
                         Text("Description")
                             .font(.subheadline.weight(.bold))
-                        Text  ("\(session.desc)")
+                        Text("\(session.desc)")
                             .padding(.bottom)
-                        Text("Participants")
+                        Text("Participants (\(session.participants.count))")
                             .font(.subheadline.weight(.bold))
                         if session.participants.isEmpty{
-                            
+                            Text("No participants yet")
                         }else{
-                            ForEach(session.participants, id: \.self){ participant in
-                                Text("\(participant)")
+                            ScrollView{
+                                ForEach(session.participants, id: \.self){ participant in
+                                    Text("\(participant)")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                             }
+                            
                         }
-                        
                         Text("Your Name")
                             .font(.subheadline.weight(.bold))
                         TextField ("", text: $name)
@@ -68,7 +72,10 @@ struct SessionDetailView: View {
                     }.padding([.leading, .bottom, .trailing])
                     Button
                     {
-                        if(name != ""){
+                        if(session.participants.count == session.max){
+                            showAlert = true
+                        }
+                        else if(name != ""){
                             itemModel.addNewParticipant(name: name, className: session.sessionName)
                         }
                         showSessionListView = true
@@ -78,6 +85,11 @@ struct SessionDetailView: View {
                     }.padding(.horizontal)
                     .buttonStyle(.borderedProminent)
                     .tint(.green)
+                    .alert("Session Full", isPresented: $showAlert){
+                        Button("OK", role: .cancel){}
+                    } message: {
+                        Text("The session is full")
+                    }
                 }
             }
             .toolbar {
