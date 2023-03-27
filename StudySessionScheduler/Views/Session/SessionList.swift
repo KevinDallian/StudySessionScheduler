@@ -31,7 +31,7 @@ struct SessionList: View {
                     .foregroundColor(.white)
                     .shadow(radius: 32, y: -5)
                 RoundedRectangle(cornerRadius: 34)
-                    .offset(y: 640)
+                    .offset(y: 700)
                     .foregroundColor(.green)
                 ScrollView{
                     ForEach(0 ..< itemModel.sessions.count, id: \.self) { index in
@@ -42,8 +42,7 @@ struct SessionList: View {
                             SessionView(session: itemModel.sessions[index])
                                 .padding(.horizontal)
                         }.accentColor(.black)
-                    }.searchable(text: $searchTerm)
-                        .onChange(of: searchTerm, perform: performSearch)
+                    }
                         
                 }.offset(y: 120)
             }.background(
@@ -62,20 +61,20 @@ struct SessionList: View {
                             .foregroundColor(.white)
                     }
                 }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button{
-                        print("")
-                    } label:{
-                        Image(systemName: "bell.circle.fill")
-                            .font(.title)
-                    }.accentColor(.white)
-                    Button{
-                        //
-                    } label:{
-                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                            .font(.title)
-                    }.accentColor(.white)
-                }
+//                ToolbarItemGroup(placement: .navigationBarTrailing) {
+//                    Button{
+//                        print("")
+//                    } label:{
+//                        Image(systemName: "bell.circle.fill")
+//                            .font(.title)
+//                    }.accentColor(.white)
+//                    Button{
+//                        //
+//                    } label:{
+//                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+//                            .font(.title)
+//                    }.accentColor(.white)
+//                }
                 ToolbarItemGroup(placement: .bottomBar){
                     NavigationLink{
                         SessionForm()
