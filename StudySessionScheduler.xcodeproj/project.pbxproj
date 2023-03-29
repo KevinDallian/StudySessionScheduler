@@ -18,6 +18,7 @@
 		D85C400229C9C20C00B7D9FE /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */; };
 		D85C400529C9C3EA00B7D9FE /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400429C9C3EA00B7D9FE /* SessionList.swift */; };
 		D85C400729C9C59500B7D9FE /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C400629C9C59500B7D9FE /* SessionView.swift */; };
+		D86B56B529D3FB1400E84C37 /* StudySessionScheduler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D86B56B329D3FB1400E84C37 /* StudySessionScheduler.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		D85C400429C9C3EA00B7D9FE /* SessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionList.swift; sourceTree = "<group>"; };
 		D85C400629C9C59500B7D9FE /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		D86B56B429D3FB1400E84C37 /* StudySessionScheduler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudySessionScheduler.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				D85C3FFF29C9C0D500B7D9FE /* SessionModel.swift */,
 				D85C400129C9C20C00B7D9FE /* ItemViewModel.swift */,
+				D86B56B329D3FB1400E84C37 /* StudySessionScheduler.xcdatamodeld */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				7143F55D29CBAE3E00C9F366 /* SessionForm.swift in Sources */,
 				D85C3FF029C9BB3F00B7D9FE /* StudySessionSchedulerApp.swift in Sources */,
 				310FBF5D29CB3CB7009D178B /* SessionDetailView.swift in Sources */,
+				D86B56B529D3FB1400E84C37 /* StudySessionScheduler.xcdatamodeld in Sources */,
 				D85C400229C9C20C00B7D9FE /* ItemViewModel.swift in Sources */,
 				7157D1CF29CD7494008E8AC9 /* SessionFormView.swift in Sources */,
 				D85C400029C9C0D500B7D9FE /* SessionModel.swift in Sources */,
@@ -389,6 +393,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D86B56B329D3FB1400E84C37 /* StudySessionScheduler.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D86B56B429D3FB1400E84C37 /* StudySessionScheduler.xcdatamodel */,
+			);
+			currentVersion = D86B56B429D3FB1400E84C37 /* StudySessionScheduler.xcdatamodel */;
+			path = StudySessionScheduler.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D85C3FE429C9BB3F00B7D9FE /* Project object */;
 }

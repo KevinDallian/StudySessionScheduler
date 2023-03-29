@@ -29,7 +29,7 @@ struct SessionForm: View {
                         .offset(y: -80)
                         .foregroundColor(.white)
                         .shadow(radius: 32, y: 5)
-                    SessionFormView(sessionName: $sessionName, date: $date, host: $host, place: $place, max: $max, desc: $desc, savedSession: $itemModel.sessions)
+                    SessionFormView(sessionName: $sessionName, date: $date, host: $host, place: $place, max: $max, desc: $desc)
                         .background(Color.white)
                         .scrollContentBackground(.hidden)
                         .offset(y: -50)

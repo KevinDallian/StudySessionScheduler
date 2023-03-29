@@ -11,7 +11,7 @@ struct SessionDetailView: View {
 
     @EnvironmentObject private var itemModel : ItemViewModel
     @Environment(\.presentationMode) var presentationMode
-    var session : Session
+    var session : SessionEntity
     @State var name : String = ""
     @State private var showAlert = false
     @State private var showSessionListView = false
@@ -31,38 +31,38 @@ struct SessionDetailView: View {
                         .scaledToFit()
                         .clipShape(Circle())
                         .frame(width: 154, height: 154)
-                    Text("\(session.sessionName)")
+                    Text("\(session.name ?? "Name")")
                         .font(.largeTitle.weight(.bold))
-                    Text("By \(session.host)")
+                    Text("By \(session.host ?? "Host")")
 
                     VStack(alignment: .leading) {
                         Text("Date Time")
                             .font(.subheadline.weight(.bold))
                         HStack {
-                            Text (session.date, style: .date)
-                            Text (session.date, style: .time)
+                            Text (session.date ?? Date.now, style: .date)
+                            Text (session.date ?? Date.now, style: .time)
                         }
                         .padding(.bottom)
                         Text("At")
                             .font(.subheadline.weight(.bold))
-                        Text ("\(session.place)")
+                        Text ("\(session.place ?? "Place")")
                             .padding(.bottom)
                         Text("Description")
                             .font(.subheadline.weight(.bold))
-                        Text("\(session.desc)")
+                        Text("\(session.desc ?? "Description")")
                             .padding(.bottom)
-                        Text("Participants (\(session.participants.count))")
-                            .font(.subheadline.weight(.bold))
-                        if session.participants.isEmpty{
-                            Text("No participants yet")
-                        }else{
+                        
+                        if let participants = session.participants?.allObjects as? [ParticipantEntity]{
+                            Text("Participants (\(session.participants!.count))")
+                                .font(.subheadline.weight(.bold))
                             ScrollView{
-                                ForEach(session.participants, id: \.self){ participant in
-                                    Text("\(participant)")
+                                ForEach(participants, id: \.self){ participant in
+                                    Text("\(participant.name ?? "Name")")
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                            
+                        } else{
+                            Text("No Participants yet...")
                         }
                         Text("Your Name")
                             .font(.subheadline.weight(.bold))
@@ -71,11 +71,11 @@ struct SessionDetailView: View {
                     }.padding([.leading, .bottom, .trailing])
                     Button
                     {
-                        if(session.participants.count == session.max){
+                        if(session.participants!.count == session.max){
                             showAlert = true
                         }
                         else if(name != ""){
-                            itemModel.addNewParticipant(name: name, className: session.sessionName)
+                            itemModel.addNewParticipant(name: name, className: session.name!)
                             showSessionListView = true
                         }
                         
@@ -97,7 +97,7 @@ struct SessionDetailView: View {
                             Text("Back to Menu")
                         }
                     } message:{
-                        Text("Successfully Joined \(session.sessionName)!")
+                        Text("Successfully Joined \(session.name ?? "Name")!")
                     }
                 }
             }

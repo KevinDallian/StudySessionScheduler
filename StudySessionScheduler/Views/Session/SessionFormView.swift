@@ -18,7 +18,6 @@ struct SessionFormView: View {
     @State private var showAlert = false
     @Environment(\.presentationMode) var presentationMode
 
-    @Binding var savedSession : [Session]
     var body: some View {
         VStack{
             Spacer()
@@ -56,9 +55,7 @@ struct SessionFormView: View {
             }.accentColor(.red)
             Spacer()
             Button{
-                let participants = [host]
-                let newSession = Session(sessionName: sessionName, desc: desc, date: date, place: place, participants: participants, host: host, max: max)
-                itemModel.addSession(session: newSession)
+                itemModel.addSession(name: sessionName, desc: desc, date: date, place: place, host: host, max: Int16(max))
                 showAlert = true
             } label: {
                 Text("Create new Session")
@@ -85,6 +82,7 @@ struct SessionFormView: View {
 
 struct SessionFormView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionFormView(sessionName: .constant(""), date: .constant(Date()), host: .constant(""), place: .constant(""), max: .constant(100), desc: .constant(""), savedSession: .constant([]))
+        SessionFormView(sessionName: .constant(""), date: .constant(Date()), host: .constant(""), place: .constant(""), max: .constant(100), desc: .constant(""))
+            .environmentObject(ItemViewModel())
     }
 }

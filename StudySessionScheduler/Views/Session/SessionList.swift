@@ -9,19 +9,19 @@ import SwiftUI
 
 struct SessionList: View {
     @EnvironmentObject var itemModel : ItemViewModel
-    @State private var searchTerm = ""
-    @State private var filteredWords: [Session] = []
+//    @State private var searchTerm = ""
+//    @State private var filteredWords: [Session] = []
     let hour = Calendar.current.component(.hour, from: Date())
-    
-    private func performSearch(keyword: String){
-        filteredWords = itemModel.sessions.filter {
-            sessi in sessi.sessionName.contains(keyword)
-        }
-    }
-    
-    var sessions: [Session] {
-        filteredWords.isEmpty ? itemModel.sessions :  filteredWords
-    }
+//
+//    private func performSearch(keyword: String){
+//        filteredWords = itemModel.sessions.filter {
+//            sessi in sessi.sessionName.contains(keyword)
+//        }
+//    }
+//
+//    var sessions: [Session] {
+//        filteredWords.isEmpty ? itemModel.sessions :  filteredWords
+//    }
     
     var body: some View {
         NavigationView{
